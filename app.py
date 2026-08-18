@@ -17,12 +17,12 @@ def generate_pet_letter(pet_info: dict) -> str:
     system_prompt = "당신은 무지개다리를 건넌 반려동물입니다. 남겨진 주인이 슬퍼하지 않도록 따뜻하게 위로하는 편지를 400자 내외로 작성하세요."
     user_content = f"- 이름: {pet_info['name']}\n- 호칭: {pet_info['owner_call']}\n- 간식: {pet_info['favorite']}\n- 버릇: {pet_info['habit']}\n- 추억: {pet_info['memory']}"
     response = client.chat.completions.create(model="gpt-4o-mini", messages=[{"role": "system", "content": system_prompt}, {"role": "user", "content": user_content}], temperature=0.85)
-    return response.choices.message.content
+    return response.choices[0].message.content
 
 def generate_pet_image(pet_info: dict) -> str:
     prompt = f"A beautiful watercolor fairytale illustration of a happy pet named {pet_info['name']} playing in a sunny cloud garden. Heartwarming aesthetic. No text."
     response = client.images.generate(model="dall-e-3", prompt=prompt, n=1, size="1024x1024")
-    return response.data.url
+    return response.data[0].url
 
 st.title("💌 무지개다리 기억보관소")
 st.subheader("하늘나라에서 도착한 우리 아이의 첫 번째 편지")
@@ -69,4 +69,4 @@ if st.session_state.generated_letter and st.session_state.generated_image:
         st.image(st.session_state.generated_image, caption=f"하늘나라에서 잘 지내고 있는 {pet_name}", use_column_width=True)
     st.markdown("### 🎁 소중한 추억을 영원히 간직하세요")
     st.write("AI가 생성한 이 편지와 그림을 최고급 캔버스 액자 및 실물 책자로 제작해 드립니다.")
-    st.button("📦 프리미엄 추억 액자 패키지
+    st.button("📦 프리미엄 추억 액자 패키지 
