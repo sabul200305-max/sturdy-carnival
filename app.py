@@ -17,7 +17,7 @@ def generate_pet_letter(pet_info: dict) -> str:
     system_prompt = "당신은 무지개다리를 건넌 반려동물입니다. 남겨진 주인이 슬퍼하지 않도록 따뜻하게 위로하는 편지를 400자 내외로 작성하세요."
     user_content = f"- 이름: {pet_info['name']}\n- 호칭: {pet_info['owner_call']}\n- 간식: {pet_info['favorite']}\n- 버릇: {pet_info['habit']}\n- 추억: {pet_info['memory']}"
     response = client.chat.completions.create(model="gpt-4o-mini", messages=[{"role": "system", "content": system_prompt}, {"role": "user", "content": user_content}], temperature=0.85)
-    return response.choices.message.content
+    return response.choices[0].message.content
 
 def generate_pet_image(pet_info: dict) -> str:
     prompt = f"A beautiful watercolor fairytale illustration of a happy pet named {pet_info['name']} playing in a sunny cloud garden. Heartwarming aesthetic. No text."
