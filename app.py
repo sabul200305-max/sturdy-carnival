@@ -69,4 +69,4 @@ if st.session_state.generated_letter and st.session_state.generated_image:
         st.image(st.session_state.generated_image, caption=f"하늘나라에서 잘 지내고 있는 {pet_name}", use_column_width=True)
     st.markdown("### 🎁 소중한 추억을 영원히 간직하세요")
     st.write("AI가 생성한 이 편지와 그림을 최고급 캔버스 액자 및 실물 책자로 제작해 드립니다.")
-    st.button("📦 프리미엄 추억 액자 패키지
+    st.button("📦 프리미엄 추억 액자 패키지")
