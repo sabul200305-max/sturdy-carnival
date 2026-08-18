@@ -21,7 +21,7 @@ def generate_pet_letter(pet_info: dict) -> str:
 
 def generate_pet_image(pet_info: dict) -> str:
     prompt = f"A beautiful watercolor fairytale illustration of a happy pet named {pet_info['name']} playing in a sunny cloud garden. Heartwarming aesthetic. No text."
-    response = client.images.generate(model="dall-e-3", prompt=prompt, n=1, size="1024x1024")
+    response = client.images.generate(model="dall-e-3",prompt=prompt,n=1,size="1024x1024")
     return response.data.url
 
 st.title("💌 무지개다리 기억보관소")
