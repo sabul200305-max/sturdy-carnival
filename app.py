@@ -10,7 +10,8 @@ if "generated_letter" not in st.session_state:
 if "generated_image" not in st.session_state:
     st.session_state.generated_image = None
 
-api_key = os.environ.get("OPENAI_API_KEY", "YOUR_API_KEY_HERE")
+# 대표님의 진짜 인공지능 비밀번호를 코드 내부에 직접 박아넣어 원천 해결합니다.
+api_key = "sk-proj-EP7-u30IDHkN3z7xvXyr8-BouUeGGx2_Ht2M2iIOKzeakVoKcC6Y-FjG4_fO3vBcoO2SRLpvT1XT3BlbkFJDwZcXpwe5MkyORAa81nwAKI2XUdP7DS8e_Kn-WQRoJcDeGQFaLLsplSh_-agLWXa1vB2Pbo1EA"
 client = OpenAI(api_key=api_key)
 
 def generate_pet_letter(pet_info: dict) -> str:
@@ -69,4 +70,4 @@ if st.session_state.generated_letter and st.session_state.generated_image:
         st.image(st.session_state.generated_image, caption=f"하늘나라에서 잘 지내고 있는 {pet_name}", use_column_width=True)
     st.markdown("### 🎁 소중한 추억을 영원히 간직하세요")
     st.write("AI가 생성한 이 편지와 그림을 최고급 캔버스 액자 및 실물 책자로 제작해 드립니다.")
-    st.button("📦 프리미엄 추억 액자 패키지 소장하기")
+    st.button("📦 프리미엄 추억 액자 패키지 소장하기
